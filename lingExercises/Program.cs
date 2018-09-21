@@ -93,6 +93,17 @@ namespace lingExercises
             var currency = String.Format($"{howMuch:C}");
             Console.WriteLine($"We have made {currency}!");
             Console.ReadLine();
+
+            // What is our most expensive product?
+            List<double> prices = new List<double>()
+            {
+                879.45, 9442.85, 2454.63, 45.65, 2340.29, 34.03, 4786.45, 745.31, 21.76
+            };
+
+            var highestPrice = prices.Max();
+
+            Console.WriteLine($"Our highest price is {String.Format($"{highestPrice:C}")}.");
+            Console.ReadLine();
         }
     }
 }
