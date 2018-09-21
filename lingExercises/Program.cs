@@ -83,6 +83,16 @@ namespace lingExercises
             Console.WriteLine($"There are {howMany} numbers in this list.");
             Console.ReadLine();
 
+            // How much money have we made?
+            List<double> purchases = new List<double>()
+            {
+                2340.29, 745.31, 21.76, 34.03, 4786.45, 879.45, 9442.85, 2454.63, 45.65
+            };
+
+            var howMuch = purchases.Sum();
+            var currency = String.Format($"{howMuch:C}");
+            Console.WriteLine($"We have made {currency}!");
+            Console.ReadLine();
         }
     }
 }
