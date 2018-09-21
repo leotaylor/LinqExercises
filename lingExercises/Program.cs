@@ -56,6 +56,33 @@ namespace lingExercises
                 Console.WriteLine(name);
             }
             Console.ReadLine();
+
+            // Build a collection of these numbers sorted in ascending order
+            List<int> numeros = new List<int>()
+            {
+                15, 8, 21, 24, 32, 13, 30, 12, 7, 54, 48, 4, 49, 96
+            };
+
+            var ascendingNumbers = from numero in numeros
+                                   orderby numero ascending
+                                   select numero;
+
+            foreach(var numero in ascendingNumbers)
+            {
+                Console.WriteLine(numero);
+            }
+            Console.ReadLine();
+
+            // Output how many numbers are in this list
+            List<int> numerals = new List<int>()
+            {
+                15, 8, 21, 24, 32, 13, 30, 12, 7, 54, 48, 4, 49, 96
+            };
+
+            var howMany = numerals.Count();
+            Console.WriteLine($"There are {howMany} numbers in this list.");
+            Console.ReadLine();
+
         }
     }
 }
