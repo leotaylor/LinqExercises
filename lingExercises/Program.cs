@@ -36,6 +36,26 @@ namespace lingExercises
                 Console.WriteLine(number);
             }
             Console.ReadLine();
+
+            // Order these student names alphabetically, in descending order (Z to A)
+            List<string> names = new List<string>()
+            {
+                "Heather", "James", "Xavier", "Michelle", "Brian", "Nina",
+                "Kathleen", "Sophia", "Amir", "Douglas", "Zarley", "Beatrice",
+                "Theodora", "William", "Svetlana", "Charisse", "Yolanda",
+                "Gregorio", "Jean-Paul", "Evangelina", "Viktor", "Jacqueline",
+                "Francisco", "Tre"
+            };
+
+            var descend = from name in names
+                          orderby name descending
+                          select name;
+
+            foreach(var name in descend)
+            {
+                Console.WriteLine(name);
+            }
+            Console.ReadLine();
         }
     }
 }
