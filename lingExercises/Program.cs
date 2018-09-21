@@ -14,7 +14,7 @@ namespace lingExercises
             // var LFruits = fruits.Where(fruit => fruit.StartsWith("L"));
 
             var LFruits = from fruit in fruits
-                          where fruit[0] == 'L'
+                          where fruit.StartsWith("L")
                           select fruit;
 
             foreach (var fruit in LFruits)
