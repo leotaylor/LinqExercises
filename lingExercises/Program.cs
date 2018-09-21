@@ -11,9 +11,13 @@ namespace lingExercises
             // Find the words in the collection that start with the letter 'L'
             List<string> fruits = new List<string>() { "Lemon", "Apple", "Orange", "Lime", "Watermelon", "Loganberry" };
 
-            var filtredFruits = fruits.Where(fruit => fruit.StartsWith("L"));
+            // var LFruits = fruits.Where(fruit => fruit.StartsWith("L"));
 
-            foreach (var fruit in filtredFruits)
+            var LFruits = from fruit in fruits
+                          where fruit[0] == 'L'
+                          select fruit;
+
+            foreach (var fruit in LFruits)
             {
                 Console.WriteLine(fruit);
             }
