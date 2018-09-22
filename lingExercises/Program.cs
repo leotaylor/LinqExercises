@@ -104,6 +104,32 @@ namespace lingExercises
 
             Console.WriteLine($"Our highest price is {String.Format($"{highestPrice:C}")}.");
             Console.ReadLine();
+
+            
+            //Store each number in the following List until a perfect square is detected 
+
+            List<int> wheresSquaredo = new List<int>()
+            {
+                66, 12, 8, 27, 82, 34, 7, 50, 19, 46, 81, 23, 30, 4, 68, 14
+            };
+
+            var partitioned = wheresSquaredo.TakeWhile(square => Math.Sqrt(square) % 1 != 0);
+            Console.WriteLine("Store each number in the following List until a perfect square is detected: 66, 12, 8, 27, 82, 34, 7, 50, 19, 46, 81, 23, 30, 4, 68, 14 : ");
+            foreach(var number in partitioned)
+            {
+                Console.WriteLine(number);
+            }
+
+
+            //foreach (var squared in wheresSquaredo)
+            //{
+            //    var squareList = Math.Sqrt(squared);
+            //    if(squareList % 1 == 0)
+            //    {
+            //        Console.WriteLine(squareList);
+            //    }
+            //}
+            Console.ReadLine();
         }
     }
 }
