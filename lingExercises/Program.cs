@@ -153,6 +153,15 @@ namespace lingExercises
                 Console.WriteLine(millionaire.Name);
             }
             Console.ReadLine();
+
+            var result = from m in millionaires
+                         group m.Balance by m.Bank into g
+                         select new { Bank = g.Key, Balance = g.ToList() };
+            foreach (var thing in result)
+            {
+                Console.WriteLine($"{thing.Bank}: {thing.Balance.Count()}");
+            }
+            Console.ReadLine();
         }
     }
 }
