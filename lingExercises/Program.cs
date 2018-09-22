@@ -114,12 +114,15 @@ namespace lingExercises
             };
 
             var partitioned = wheresSquaredo.TakeWhile(square => Math.Sqrt(square) % 1 != 0);
+
             Console.WriteLine("Store each number in the following List until a perfect square is detected: 66, 12, 8, 27, 82, 34, 7, 50, 19, 46, 81, 23, 30, 4, 68, 14 : ");
-            foreach(var number in partitioned)
+
+            foreach (var number in partitioned)
             {
                 Console.WriteLine(number);
             }
             Console.ReadLine();
+
 
             // Build a collection of customers who are millionaires
             List<Customer> customers = new List<Customer>() {
@@ -135,12 +138,19 @@ namespace lingExercises
                 new Customer(){ Name="Sid Brown", Balance=49582.68, Bank="CITI"}
             };
 
+            List<Customer> millionaires = new List<Customer>();
+
             foreach(var customer in customers)
             {
                 if(customer.Balance >= 1000000)
                 {
-                    Console.WriteLine(customer.Name);
+                    millionaires.Add(customer);
                 }
+            }
+
+            foreach(var millionaire in millionaires)
+            {
+                Console.WriteLine(millionaire.Name);
             }
             Console.ReadLine();
         }
