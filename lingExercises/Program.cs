@@ -194,11 +194,11 @@ namespace lingExercises
                             select new { BankId = b.Name, CustomerName = c.Name, Balance = c.Balance };
 
             Console.WriteLine("Print Millionaires at bank sorted by last name:");
-            foreach(var v in millionaireReport)
+            foreach(var customer in millionaireReport)
             {
-                if (v.Balance >= 1000000)
+                if (customer.Balance >= 1000000)
                 {
-                    Console.WriteLine($"{v.CustomerName} at {v.BankId}");
+                    Console.WriteLine($"{customer.CustomerName} at {customer.BankId}");
                 }
             }
             Console.ReadLine();
