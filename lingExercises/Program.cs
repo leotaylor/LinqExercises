@@ -154,12 +154,52 @@ namespace lingExercises
             }
             Console.ReadLine();
 
+
+            //Given the same customer set, display how many millionaires per bank.
+
             var result = from m in millionaires
                          group m.Balance by m.Bank into g
                          select new { Bank = g.Key, Balance = g.ToList() };
             foreach (var thing in result)
             {
                 Console.WriteLine($"{thing.Bank}: {thing.Balance.Count()}");
+            }
+            Console.ReadLine();
+
+               /*
+                TASK:
+                As in the previous exercise, you're going to output the millionaires,
+                but you will also display the full name of the bank. You also need
+                to sort the millionaires' names, ascending by their LAST name.
+
+                Example output:
+                    Tina Fey at Citibank
+                    Joe Landy at Wells Fargo
+                    Sarah Ng at First Tennessee
+                    Les Paul at Wells Fargo
+                    Peg Vale at Bank of America
+            */
+
+            List<Bank> banks = new List<Bank>()
+            {
+                new Bank(){ Name="First Tennessee", Symbol="FTB"},
+                new Bank(){ Name="Wells Fargo", Symbol="WF"},
+                new Bank(){ Name="Bank of America", Symbol="BOA"},
+                new Bank(){ Name="Citibank", Symbol="CITI"},
+            };
+
+            var millionaireReport = from b in banks
+                            join c in customers on b.Symbol equals c.Bank
+                            orderby c.Name.Split(" ").Last()
+                            select new { BankId = b.Name, CustomerName = c.Name, Balance = c.Balance };
+
+            Console.WriteLine("Print Millionaires at bank sorted by last name:");
+            foreach(var v in millionaireReport)
+            {
+                if (v.Balance >= 1000000)
+                {
+                    Console.WriteLine($"{v.CustomerName} at {v.BankId}");
+                }
             }
             Console.ReadLine();
         }
