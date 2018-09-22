@@ -191,7 +191,7 @@ namespace lingExercises
             var millionaireReport = from b in banks
                             join c in customers on b.Symbol equals c.Bank
                             orderby c.Name.Split(" ").Last()
-                            select new { BankId = b.Name, CustomerName = c.Name, Balance = c.Balance };
+                            select new { BankId = b.Name, CustomerName = c.Name, c.Balance };
 
             Console.WriteLine("Print Millionaires at bank sorted by last name:");
             foreach(var customer in millionaireReport)
